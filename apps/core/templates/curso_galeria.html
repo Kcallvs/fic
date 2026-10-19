@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+Lista de Cursos
+{% endblock %}
+
+{% block estilo %}
+<link rel="stylesheet" href="{% static 'assets/css/curso_galeria.css' %}" />
+{% endblock %}
+
+{% block conteudo %}
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Galeria de Cursos</h1>
+    <div class="breadcrumb">
+      <a href="{% url 'index' %}">Início</a><span>/</span><span>Cursos</span>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <aside class="sidebar">
+    <form method="get">
+      <h3>🔍 Filtros</h3>
+
+      <div class="filter-group">
+        <label class="group-label" for="busca">Buscar por nome</label>
+        <input type="text" id="busca" name="busca" value="{{ busca }}" placeholder="Digite o nome do curso..." />
+      </div>
+
+      <div class="filter-group">
+        <label class="group-label">Área do Curso</label>
+        <div class="checkbox-list">
+          {% for area in areas %}
+          <label class="checkbox-item">
+            <input type="checkbox" name="area" value="{{ area.id }}"
+              {% if area.id|stringformat:'s' in areas_marcadas %}checked{% endif %} />
+            {{ area.nome }}
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="group-label">Público-Alvo</label>
+        <div class="checkbox-list">
+          {% for publicoalvo in publicoalvos %}
+          <label class="checkbox-item">
+            <input type="checkbox" name="publico" value="{{ publicoalvo.id }}"
+              {% if publicoalvo.id|stringformat:'s' in publicos_marcados %}checked{% endif %} />
+            {{ publicoalvo.nome }}
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn-filter">Atualizar</button>
+      <a href="{% url 'curso_galeria' %}"><button type="button" class="btn-reset">Limpar filtros</button></a>
+    </form>
+  </aside>
+
+  <div>
+    <div class="results-bar">
+      <p class="results-count">Exibindo <strong>{{ pagina|length }}</strong> de <strong>{{ pagina.paginator.count }}</strong> cursos</p>
+    </div>
+
+    <div class="courses-grid">
+
+      {% for curso in pagina %}
+      <div class="course-card">
+        <div class="course-card-img">
+          {% if curso.imagem %}
+          <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}" />
+          {% else %}
+          💻
+          {% endif %}
+        </div>
+        <div class="course-card-body">
+          <span class="course-area-tag">{{ curso.area.nome }}</span>
+          <h3>{{ curso.titulo }}</h3>
+        </div>
+        <div class="course-card-footer"><a href="{% url 'curso_detalhes' curso.id %}" class="btn-card">Ver Curso</a></div>
+      </div>
+      {% empty %}
+      <p>Nenhum curso encontrado.</p>
+      {% endfor %}
+
+    </div>
+
+    {% include 'paginacao.html' %}
+  </div>
+</div>
+{% endblock %}

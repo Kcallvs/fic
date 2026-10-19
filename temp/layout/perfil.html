@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – IFRN FIC</title>
+  <link rel="stylesheet" href="assets/css/perfil.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="avatar">BG</div>
+    <div>
+      <div class="user-name">Bruno Gomes</div>
+      <div class="user-role">Administrador</div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <a href="#" class="nav-item active"><span class="nav-icon">🏠</span> Inicial</a>
+    <a href="#" class="nav-item"><span class="nav-icon">👤</span> Meus Dados</a>
+    <a href="#" class="nav-item"><span class="nav-icon">📚</span> Meus Cursos</a>
+
+    <div class="nav-section">Gerenciamento</div>
+    <a href="#" class="nav-item"><span class="nav-icon">🎓</span> Cursos</a>
+    <a href="#" class="nav-item"><span class="nav-icon">🏷</span> Áreas</a>
+    <a href="#" class="nav-item"><span class="nav-icon">👥</span> Públicos-Alvo</a>
+    <a href="#" class="nav-item"><span class="nav-icon">🔑</span> Usuários</a>
+
+    <div class="nav-section">Sessão</div>
+    <a href="index.html" class="nav-item danger"><span class="nav-icon">🚪</span> Sair</a>
+  </nav>
+
+  <div class="sidebar-footer">IFRN FIC © 2025</div>
+</aside>
+
+<div class="topbar">
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="logo-text">IFRN FIC<span>Dashboard</span></div>
+  <div class="avatar" style="width:36px;height:36px;font-size:1rem;">BG</div>
+</div>
+
+<main class="main">
+
+  <div>
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle">Bem-vindo de volta, Bruno. Confira o resumo abaixo.</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon green">🎓</div>
+      <div class="stat-body">
+        <div class="stat-value">24</div>
+        <div class="stat-label">Cursos Cadastrados</div>
+        <div class="stat-change">↑ 3 este mês</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon yellow">🏷</div>
+      <div class="stat-body">
+        <div class="stat-value">6</div>
+        <div class="stat-label">Áreas</div>
+        <div class="stat-change">↑ 1 nova</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon blue">👥</div>
+      <div class="stat-body">
+        <div class="stat-value">142</div>
+        <div class="stat-label">Inscritos no mês</div>
+        <div class="stat-change">↑ 18% vs. mês anterior</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon purple">🔑</div>
+      <div class="stat-body">
+        <div class="stat-value">12</div>
+        <div class="stat-label">Usuários Ativos</div>
+        <div class="stat-change">↑ 2 novos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Gerenciamento de Cursos</h2>
+      <button class="btn-sm btn-primary">＋ Cadastrar Curso</button>
+    </div>
+    <div class="section-card-body">
+      <div class="table-toolbar">
+        <input type="text" class="search-input" placeholder="🔍  Buscar curso..." />
+        <select class="filter-select">
+          <option>Todas as áreas</option>
+          <option>Informática</option>
+          <option>Eventos</option>
+          <option>Eletromecânica</option>
+          <option>Mecânica</option>
+        </select>
+        <select class="filter-select">
+          <option>Todos os públicos</option>
+          <option>Discente</option>
+          <option>Docente</option>
+          <option>Externo</option>
+        </select>
+        <button class="btn-sm btn-outline-sm">Filtrar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nome do Curso</th>
+              <th>Área</th>
+              <th>Público</th>
+              <th>Carga Horária</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="td-img">💻</div></td>
+              <td><div class="td-name">Introdução à Programação com Python<span>Cadastrado em 10/04/2025</span></div></td>
+              <td><span class="badge badge-info">Informática</span></td>
+              <td>Discente / Externo</td>
+              <td>60h</td>
+              <td><div class="td-actions"><button class="btn-sm btn-outline-sm">✏ Editar</button><button class="btn-sm btn-danger-sm">🗑 Remover</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="td-img">🎪</div></td>
+              <td><div class="td-name">Organização e Gestão de Eventos<span>Cadastrado em 05/04/2025</span></div></td>
+              <td><span class="badge badge-events">Eventos</span></td>
+              <td>Externo</td>
+              <td>40h</td>
+              <td><div class="td-actions"><button class="btn-sm btn-outline-sm">✏ Editar</button><button class="btn-sm btn-danger-sm">🗑 Remover</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="td-img">⚙️</div></td>
+              <td><div class="td-name">Manutenção de Motores Elétricos<span>Cadastrado em 01/04/2025</span></div></td>
+              <td><span class="badge badge-mec">Eletromecânica</span></td>
+              <td>Discente / Docente</td>
+              <td>80h</td>
+              <td><div class="td-actions"><button class="btn-sm btn-outline-sm">✏ Editar</button><button class="btn-sm btn-danger-sm">🗑 Remover</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="td-img">🔩</div></td>
+              <td><div class="td-name">Tornearia Mecânica Básica<span>Cadastrado em 28/03/2025</span></div></td>
+              <td><span class="badge badge-mec">Mecânica</span></td>
+              <td>Discente</td>
+              <td>100h</td>
+              <td><div class="td-actions"><button class="btn-sm btn-outline-sm">✏ Editar</button><button class="btn-sm btn-danger-sm">🗑 Remover</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="td-img">🌐</div></td>
+              <td><div class="td-name">Desenvolvimento Web com HTML e CSS<span>Cadastrado em 20/03/2025</span></div></td>
+              <td><span class="badge badge-info">Informática</span></td>
+              <td>Externo</td>
+              <td>60h</td>
+              <td><div class="td-actions"><button class="btn-sm btn-outline-sm">✏ Editar</button><button class="btn-sm btn-danger-sm">🗑 Remover</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button class="page-btn">‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <span style="color:var(--text-muted);padding:0 .2rem">…</span>
+        <button class="page-btn">5</button>
+        <button class="page-btn">›</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Cadastrar / Editar Curso</h2>
+      <span style="font-size:.8rem;color:var(--text-muted)">* campos obrigatórios</span>
+    </div>
+    <div class="section-card-body">
+      <form id="course-form" novalidate>
+        <div class="form-section">
+
+          <div class="form-group">
+            <label>Título do Curso <span class="required">*</span></label>
+            <input type="text" placeholder="Ex: Introdução à Programação com Python" required />
+          </div>
+
+          <div class="form-group">
+            <label>Área <span class="required">*</span></label>
+            <select required>
+              <option value="">Selecione a área</option>
+              <option>Informática</option>
+              <option>Eventos</option>
+              <option>Eletromecânica</option>
+              <option>Mecânica</option>
+              <option>Administração</option>
+              <option>Saúde</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label>Resumo / Descrição <span class="required">*</span></label>
+            <textarea placeholder="Descreva o curso, objetivos, conteúdo programático..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Carga Horária (horas) <span class="required">*</span></label>
+            <input type="number" placeholder="Ex: 60" min="1" required />
+          </div>
+
+          <div class="form-group">
+            <label>Data de Início <span class="required">*</span></label>
+            <input type="date" required />
+          </div>
+
+          <div class="form-group">
+            <label>Data de Término</label>
+            <input type="date" />
+          </div>
+
+          <div class="form-group">
+            <label>Horário de início</label>
+            <input type="time" />
+          </div>
+
+          <div class="form-group">
+            <label>E-mail de contato</label>
+            <input type="email" placeholder="coordenacao@ifrn.edu.br" />
+          </div>
+
+          <div class="form-group full">
+            <label>Link de Inscrições</label>
+            <input type="url" placeholder="https://..." />
+            <span class="hint">URL completa, incluindo https://</span>
+          </div>
+
+          <div class="form-group full">
+            <label>Local de realização</label>
+            <input type="text" placeholder="Ex: Campus Natal – Central, Bloco B" />
+          </div>
+
+          <div class="form-group full">
+            <label>Modalidade <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-item"><input type="radio" name="modalidade" value="presencial" checked /> Presencial</label>
+              <label class="radio-item"><input type="radio" name="modalidade" value="ead" /> EaD</label>
+              <label class="radio-item"><input type="radio" name="modalidade" value="hibrido" /> Híbrido</label>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Público-Alvo <span class="required">*</span></label>
+            <div class="check-group">
+              <label class="check-item"><input type="checkbox" value="discente" checked /> Discente</label>
+              <label class="check-item"><input type="checkbox" value="docente" /> Docente</label>
+              <label class="check-item"><input type="checkbox" value="externo" /> Externo</label>
+              <label class="check-item"><input type="checkbox" value="servidor" /> Servidor</label>
+              <label class="check-item"><input type="checkbox" value="egresso" /> Egresso</label>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Número máximo de vagas</label>
+            <div class="range-row">
+              <input type="range" id="vagas" min="5" max="100" step="5" value="30" oninput="document.getElementById('vagas-val').textContent=this.value" />
+              <span class="range-value" id="vagas-val">30</span>
+            </div>
+            <span class="hint">Arraste para definir o limite de vagas (5–100)</span>
+          </div>
+
+          <div class="form-group full">
+            <label>Imagem do Curso</label>
+            <div class="file-drop" onclick="document.getElementById('img-upload').click()">
+              <input type="file" id="img-upload" accept="image/*" />
+              <label>
+                <span class="file-icon">🖼</span>
+                <span class="file-text">Arraste uma imagem ou <span class="file-link">clique para selecionar</span></span>
+                <span class="hint">PNG, JPG ou WEBP – máx. 2 MB</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Cor de destaque do card</label>
+            <div style="display:flex;align-items:center;gap:.75rem;">
+              <input type="color" value="#006633" id="cor-destaque" />
+              <span class="hint">Usada como cor de fundo do card quando não há imagem</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="justify-content:flex-end;padding-top:1.5rem;">
+            <div class="toggle-row">
+              <label class="toggle"><input type="checkbox" checked /><span class="toggle-slider"></span></label>
+              <span class="toggle-label">Publicar curso imediatamente</span>
+            </div>
+            <div class="toggle-row" style="margin-top:.75rem;">
+              <label class="toggle"><input type="checkbox" /><span class="toggle-slider"></span></label>
+              <span class="toggle-label">Permitir inscrições externas</span>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <div class="form-actions">
+              <button type="submit" class="btn-form-primary">💾 Salvar Curso</button>
+              <button type="reset" class="btn-form-secondary">Cancelar</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<script src="assets/js/perfil.js"></script>
+</body>
+</html>

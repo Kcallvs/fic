@@ -1,0 +1,85 @@
+{% extends 'privado/base.html' %}
+
+{% block conteudo %}
+<main class="main">
+
+  <div>
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle">Bem-vindo de volta, Bruno. Confira o resumo abaixo.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Gerenciamento de Públicos</h2>
+      <a href="{% url 'publicoalvo_cadastrar' %}">
+      <button class="btn-sm btn-primary">＋ Cadastrar Público-Alvo</button>
+      </a>
+    </div>
+    <div class="section-card-body">
+      <div class="table-toolbar">
+        <input type="text" class="search-input" placeholder="🔍  Buscar curso..." />
+        <select class="filter-select">
+          <option>Todas as áreas</option>
+          <option>Informática</option>
+          <option>Eventos</option>
+          <option>Eletromecânica</option>
+          <option>Mecânica</option>
+        </select>
+        <select class="filter-select">
+          <option>Todos os públicos</option>
+          <option>Discente</option>
+          <option>Docente</option>
+          <option>Externo</option>
+        </select>
+        <button class="btn-sm btn-outline-sm">Filtrar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <!--<th>Foto</th>-->
+              <th>Nome do Público</th>
+              <!--<th>Área</th>-->
+              <!--<th>Público</th>-->
+              <!--<th>Carga Horária</th>-->
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for publicoalvo in publicoalvos %}
+            <tr>
+              <!-- <td><div class="td-img">💻</div></td> -->
+              <td><div class="td-name">{{publicoalvo.nome}}</div></td>
+              <!-- <td><span class="badge badge-info">Informática</span></td> -->
+              <!-- <td>Discente / Externo</td> -->
+              <!-- <td>60h</td> -->
+              <td><div class="td-actions">
+                <a href="{% url 'publicoalvo_editar' publicoalvo.id %}">
+                <button class="btn-sm btn-outline-sm">✏ Editar</button>
+                </a>
+                <a href="{% url 'publicoalvo_remover' publicoalvo.id %}">
+                <button class="btn-sm btn-danger-sm">🗑 Remover</button>
+                </a>
+              </div></td>
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button class="page-btn">‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <span style="color:var(--text-muted);padding:0 .2rem">…</span>
+        <button class="page-btn">5</button>
+        <button class="page-btn">›</button>
+      </div>
+    </div>
+  </div>
+
+ 
+
+</main>
+{% endblock %}

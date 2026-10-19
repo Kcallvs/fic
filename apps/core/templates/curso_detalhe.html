@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+{{ curso.titulo }}
+{% endblock %}
+
+{% block estilo %}
+<link rel="stylesheet" href="{% static 'assets/css/curso_detalhe.css' %} "/>
+{% endblock %}
+
+{% block conteudo %}
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="{% url 'index' %}">Início</a><span>/</span>
+      <a href="{% url 'curso_galeria' %}">Cursos</a><span>/</span>
+      <span>Detalhes</span>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="course-hero">
+    <div class="course-hero-img">
+      {% if curso.imagem %}
+      <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}" />
+      {% else %}
+      💻
+      {% endif %}
+      <span class="course-hero-badge">{{ curso.area.nome }}</span>
+    </div>
+    <div class="course-hero-body">
+      <h1>{{ curso.titulo }}</h1>
+      <div class="course-tags">
+        <span class="tag tag-area">🏷 {{ curso.area.nome }}</span>
+        {% for publico in curso.publicos.all %}
+        <span class="tag tag-publico">👥 {{ publico.nome }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-item">
+          <span class="detail-label">⏱ Carga Horária</span>
+          <span class="detail-value">{{ curso.ch }} horas</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">📅 Data de Início</span>
+          <span class="detail-value">{{ curso.data|date:"d/m/Y"|default:"A definir" }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">🎟 Vagas</span>
+          <span class="detail-value">{{ curso.vagas }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">🏷 Área</span>
+          <span class="detail-value">{{ curso.area.nome }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">👥 Público-Alvo</span>
+          <span class="detail-value">
+            {% for publico in curso.publicos.all %}{{ publico.nome }}{% if not forloop.last %} / {% endif %}{% empty %}Todos{% endfor %}
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">👤 Responsável</span>
+          <span class="detail-value">{{ curso.usuario.first_name|default:"IFRN FIC" }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>Sobre o Curso</h2>
+    <p>{{ curso.descricao|linebreaksbr }}</p>
+  </div>
+
+  <div class="section-card">
+    <h2>Inscrições e Mais Informações</h2>
+    <p style="margin-bottom: 1.25rem;">
+      Para se inscrever ou obter mais informações sobre este curso, acesse o link oficial ou entre em contato com a coordenação.
+    </p>
+    <div class="action-buttons">
+      <a href="#" class="btn-primary">🔗 Acessar Inscrições</a>
+      <a href="{% url 'contato' %}" class="btn-secondary">✉ Fale Conosco</a>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem;">
+    <a href="{% url 'curso_galeria' %}" style="color: var(--primary); font-weight: 600; font-size: .9rem;">← Voltar para a galeria de cursos</a>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato – IFRN FIC</title>
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/contato.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">IF</div>
+      <div class="logo-text">IFRN FIC<span>Formação Inicial e Continuada</span></div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Inicial</a>
+      <a href="curso_galeria.html">Cursos</a>
+      <a href="contato.html" class="active">Contato</a>
+      <div class="nav-divider"></div>
+      <a href="login.html" class="btn-nav btn-login">Login</a>
+      <a href="cadastro.html" class="btn-nav btn-cadastro">Cadastro</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Contato</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Início</a><span>/</span><span>Contato</span>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="info-col">
+    <div class="info-card">
+      <div class="info-icon">📍</div>
+      <div class="info-body">
+        <h3>Endereço</h3>
+        <p>Campus Natal – Central<br />Rua Dr. Nilo Bezerra Ramalho, 1692<br />Tirol, Natal/RN – CEP 59015-300</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📞</div>
+      <div class="info-body">
+        <h3>Telefone</h3>
+        <p><a href="tel:+558432151200">(84) 3215-1200</a><br />Seg–Sex: 8h às 17h</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">✉️</div>
+      <div class="info-body">
+        <h3>E-mail</h3>
+        <p><a href="mailto:fic@ifrn.edu.br">fic@ifrn.edu.br</a><br />Respondemos em até 2 dias úteis.</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🌐</div>
+      <div class="info-body">
+        <h3>Site Institucional</h3>
+        <p><a href="#">www.ifrn.edu.br</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h2>Envie uma Mensagem</h2>
+    <p>Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+
+    <form id="contact-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nome">Nome completo *</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="celular">Celular</label>
+        <input type="tel" id="celular" name="celular" placeholder="(84) 99999-9999" />
+        <span class="hint">Formato: (DD) 99999-9999</span>
+      </div>
+
+      <div class="form-group">
+        <label for="assunto">Assunto</label>
+        <select id="assunto" name="assunto">
+          <option value="">Selecione um assunto</option>
+          <option>Informações sobre cursos</option>
+          <option>Inscrições</option>
+          <option>Certificados</option>
+          <option>Parcerias</option>
+          <option>Outros</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Mensagem *</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Enviar Mensagem →</button>
+
+      <div class="success-msg" id="success-msg">
+        ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>IFRN FIC</h4>
+      <p>Instituto Federal do Rio Grande do Norte – Cursos de Formação Inicial e Continuada.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul><li><a href="index.html">Inicial</a></li><li><a href="curso_galeria.html">Cursos</a></li><li><a href="contato.html">Contato</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Conta</h4>
+      <ul><li><a href="login.html">Login</a></li><li><a href="cadastro.html">Cadastro</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul><li><a href="mailto:fic@ifrn.edu.br">fic@ifrn.edu.br</a></li><li><a href="#">(84) 3000-0000</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 IFRN – Instituto Federal do Rio Grande do Norte. Todos os direitos reservados.</div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/contato.js"></script>
+</body>
+</html>

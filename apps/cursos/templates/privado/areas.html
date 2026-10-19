@@ -1,0 +1,75 @@
+{% extends 'privado/base.html' %}
+
+{% block conteudo %}
+<main class="main">
+
+  <div>
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle">Bem-vindo de volta, Bruno. Confira o resumo abaixo.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Gerenciamento de Áreas</h2>
+      <a href="{% url 'area_cadastrar' %}">
+      <button class="btn-sm btn-primary">＋ Cadastrar Curso</button>
+      </a>
+    </div>
+    <div class="section-card-body">
+      <div class="table-toolbar">
+        <input type="text" class="search-input" placeholder="🔍  Buscar curso..." />
+        <select class="filter-select">
+          <option>Todas as áreas</option>
+          <option>Informática</option>
+          <option>Eventos</option>
+          <option>Eletromecânica</option>
+          <option>Mecânica</option>
+        </select>
+        <select class="filter-select">
+          <option>Todos os públicos</option>
+          <option>Discente</option>
+          <option>Docente</option>
+          <option>Externo</option>
+        </select>
+        <button class="btn-sm btn-outline-sm">Filtrar</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <!--<th>Foto</th>-->
+              <th>Nome do Curso</th>
+              <!--<th>Área</th>-->
+              <!--<th>Público</th>-->
+              <!--<th>Carga Horária</th>-->
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for area in pagina %}
+            <tr>
+              <!-- <td><div class="td-img">💻</div></td> -->
+              <td><div class="td-name">{{area.nome}}</div></td>
+              <!-- <td><span class="badge badge-info">Informática</span></td> -->
+              <!-- <td>Discente / Externo</td> -->
+              <!-- <td>60h</td> -->
+              <td><div class="td-actions">
+                <a href="{% url 'area_editar' area.id %}">
+                <button class="btn-sm btn-outline-sm">✏ Editar</button>
+                </a>
+                <a href="{% url 'area_remover' area.id %}">
+                <button class="btn-sm btn-danger-sm">🗑 Remover</button>
+                </a>
+              </div></td>
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+      </div>
+      {% include 'paginacao.html' %}
+    </div>
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'privado/base.html' %}
+{% load widget_tweaks %}
+
+{% block conteudo %}
+<main class="main">
+
+  <div>
+    <h1 class="page-title">Editar Usuario</h1>
+    <p class="page-subtitle">Atualize os dados.</p>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="section-card">
+      <div class="section-card-header">
+        <h2>Dados Pessoais</h2>
+        <span style="font-size:.8rem;color:var(--text-muted)">* campos obrigatórios</span>
+      </div>
+      <div class="section-card-body">
+        <div class="form-section">
+
+          <div class="form-group">
+            <label>CPF</label>
+            <input type="text" value="{{ usuario.cpf }}" readonly />
+            <span class="hint">O CPF não pode ser alterado</span>
+          </div>
+
+          <div class="form-group">
+            <label>Usuário <span class="required">*</span></label>
+            {% render_field form.username placeholder="Nome de usuário" %}
+            <span class="hint">{{ form.username.errors.as_text }}</span>
+          </div>
+
+          <div class="form-group">
+            <label>Nome <span class="required">*</span></label>
+            {% render_field form.first_name placeholder="Nome" %}
+            <span class="hint">{{ form.first_name.errors.as_text }}</span>
+          </div>
+
+          <div class="form-group">
+            <label>Sobrenome</label>
+            {% render_field form.last_name placeholder="Sobrenome" %}
+            <span class="hint">{{ form.last_name.errors.as_text }}</span>
+          </div>
+
+          <div class="form-group">
+            <label>E-mail <span class="required">*</span></label>
+            {% render_field form.email type="email" placeholder="seuemail@ifrn.edu.br" %}
+            <span class="hint">{{ form.email.errors.as_text }}</span>
+          </div>
+
+          <div class="form-group">
+            <label>Data de Nascimento <span class="required">*</span></label>
+            {% render_field form.nascimento type="date" %}
+            <span class="hint">{{ form.nascimento.errors.as_text }}</span>
+          </div>
+
+          <div class="form-group">
+            <label>É administrador? <span class="required">*</span></label>
+            {% render_field form.is_superuser %}
+            <span class="hint">{{ form.is_superuser.errors.as_text }}</span>
+          </div>
+
+          <input type="submit" value="Atualizar">
+
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+</main>
+{% endblock %}

@@ -23,17 +23,19 @@
   <nav class="sidebar-nav">
     <div class="nav-section">Principal</div>
     <a href="#" class="nav-item active"><span class="nav-icon">🏠</span> Inicial</a>
-    <a href="#" class="nav-item"><span class="nav-icon">👤</span> Meus Dados</a>
+    <a href="{% url 'meus_dados' %}" class="nav-item"><span class="nav-icon">👤</span> Meus Dados</a>
     <a href="#" class="nav-item"><span class="nav-icon">📚</span> Meus Cursos</a>
 
+    {% if user.is_superuser %}
     <div class="nav-section">Gerenciamento</div>
     <a href="{% url 'curso_listar' %}" class="nav-item"><span class="nav-icon">🎓</span> Cursos</a>
     <a href="{% url 'area_listar' %}" class="nav-item"><span class="nav-icon">🏷</span> Áreas</a>
     <a href="{% url 'publicoalvo_listar' %}" class="nav-item"><span class="nav-icon">👥</span> Públicos-Alvo</a>
-    <a href="#" class="nav-item"><span class="nav-icon">🔑</span> Usuários</a>
+    <a href="{% url 'usuarios_listar' %}" class="nav-item"><span class="nav-icon">🔑</span> Usuários</a>
+    {% endif %}
 
     <div class="nav-section">Sessão</div>
-    <a href="index.html" class="nav-item danger"><span class="nav-icon">🚪</span> Sair</a>
+    <a href="{% url 'sair' %}" class="nav-item danger"><span class="nav-icon">🚪</span> Sair</a>
   </nav>
 
   <div class="sidebar-footer">IFRN FIC © 2025</div>

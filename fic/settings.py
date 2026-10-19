@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'core',
+    'rest_framework',
+    'apps.core',
+    'apps.usuarios',
+    'apps.cursos',
+    'apps.api',
+
 ]
 
 MIDDLEWARE = [
@@ -85,6 +90,8 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
+AUTH_PASSWORD_VALIDATORS = []
+'''
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -99,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+'''
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
@@ -120,7 +127,11 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = ['static']
 
-AUTH_USER_MODEL = 'core.Usuario'
+# Arquivos enviados pelo usuário (uploads)
+MEDIA_URL = 'media/'
 
-LOGIN_URL = 'login' 
-# para o from django.contrib.auth.decorators import login_required funcionar
+MEDIA_ROOT = BASE_DIR / 'media'
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
+LOGIN_URL = 'login'

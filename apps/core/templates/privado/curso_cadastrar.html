@@ -1,0 +1,75 @@
+{% extends 'privado/base.html' %}
+{% load widget_tweaks %}
+
+{% block conteudo %}
+<main class="main">
+
+  <div>
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-subtitle">Bem-vindo de volta, Bruno. Confira o resumo abaixo.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-header">
+      <h2>Cadastrar / Editar Curso</h2>
+      <span style="font-size:.8rem;color:var(--text-muted)">* campos obrigatórios</span>
+    </div>
+    <div class="section-card-body">
+      <form id="course-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-section">
+
+          <div class="form-group">
+            <label>Título <span class="required">*</span></label>
+            {% render_field form.titulo placeholder="Título do Curso" %}
+          </div>
+
+            <div class="form-group">
+            <label>Data <span class="required">*</span></label>
+            {% render_field form.data type="date" %}
+          </div>
+
+          <div class="form-group">
+            <label>Descrição <span class="required">*</span></label>
+            {% render_field form.descricao row="3" %}
+          </div>
+
+          <div class="form-group">
+            <label>Carga horária <span class="required">*</span></label>
+            {% render_field form.ch type="number" %}
+          </div>
+
+          <div class="form-group">
+            <label>Vagas<span class="required">*</span></label>
+            {% render_field form.vagas type="number" %}
+          </div>
+
+          <div class="form-group">
+            <label>Imagem</label>
+            {% render_field form.imagem accept="image/*" %}
+          </div>
+
+          <div class="form-group">
+            <label>Área<span class="required">*</span></label>
+            {% render_field form.area  %}
+          </div>
+
+          <div class="form-group">
+            <label>Público<span class="required">*</span></label>
+            {% render_field form.publicos  %}
+          </div>
+
+          <div class="form-group full">
+            <div class="form-actions">
+              <button type="submit" class="btn-form-primary">💾 Salvar Curso</button>
+              <button type="reset" class="btn-form-secondary">Cancelar</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

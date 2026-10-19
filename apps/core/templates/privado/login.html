@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+Login
+{% endblock %}
+
+{% block estilo %}
+<link rel="stylesheet" href="{% static 'assets/css/auth.css' %}" />
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'assets/js/auth.js' %}"></script>
+{% endblock %}
+
+{% block conteudo %}
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Entrar na Conta</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Início</a><span>/</span><span>Login</span>
+    </div>
+  </div>
+</div>
+
+<div class="auth-main">
+  <div class="auth-card">
+    <div class="auth-card-header">
+      <div class="auth-icon">🔐</div>
+      <h1>Bem-vindo de volta</h1>
+      <p>Acesse sua conta para gerenciar os cursos FIC</p>
+    </div>
+
+    <form id="auth-form" novalidate method="post">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Usuário <span class="required">*</span></label>
+        <input type="text" id="username" name="username" placeholder="Seu nome de usuário" required />
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha <span class="required">*</span></label>
+        <input type="password" id="senha" name="password" placeholder="Sua senha" required autocomplete="current-password" />
+      </div>
+
+      <button type="submit" class="btn-submit">Autenticar →</button>
+
+      <div class="success-msg" id="success-msg">
+        ✅ Login realizado com sucesso! Redirecionando...
+      </div>
+    </form>
+
+    <div class="auth-links">
+      <a href="#">Esqueci minha senha</a>
+      <span class="separator">Não tem conta?</span>
+      <a href="cadastro.html">Criar conta gratuita</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

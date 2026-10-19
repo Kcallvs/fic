@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Áreas</h1>
+    <p><a href="{% url 'area_cadastrar' %}">Cadastar</a></p>
+    {% for area in areas %}
+    <p>
+        {{area.id}} - {{area.nome}}
+        <a href="{% url 'area_editar' area.id %}">EDITAR</a>
+        <a href="{% url 'area_remover' area.id %}">REMOVER</a>
+    </p>
+    {% endfor %}
+</body>
+</html>

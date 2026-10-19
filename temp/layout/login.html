@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – IFRN FIC</title>
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/auth.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">IF</div>
+      <div class="logo-text">IFRN FIC<span>Formação Inicial e Continuada</span></div>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Inicial</a>
+      <a href="curso_galeria.html">Cursos</a>
+      <a href="contato.html">Contato</a>
+      <div class="nav-divider"></div>
+      <a href="login.html" class="btn-nav btn-login active">Login</a>
+      <a href="cadastro.html" class="btn-nav btn-cadastro">Cadastro</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Entrar na Conta</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Início</a><span>/</span><span>Login</span>
+    </div>
+  </div>
+</div>
+
+<div class="auth-main">
+  <div class="auth-card">
+    <div class="auth-card-header">
+      <div class="auth-icon">🔐</div>
+      <h1>Bem-vindo de volta</h1>
+      <p>Acesse sua conta para gerenciar os cursos FIC</p>
+    </div>
+
+    <form id="auth-form" novalidate>
+      <div class="form-group">
+        <label for="email">E-mail <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha <span class="required">*</span></label>
+        <input type="password" id="senha" name="senha" placeholder="Sua senha" required autocomplete="current-password" />
+      </div>
+
+      <button type="submit" class="btn-submit">Autenticar →</button>
+
+      <div class="success-msg" id="success-msg">
+        ✅ Login realizado com sucesso! Redirecionando...
+      </div>
+    </form>
+
+    <div class="auth-links">
+      <a href="#">Esqueci minha senha</a>
+      <span class="separator">Não tem conta?</span>
+      <a href="cadastro.html">Criar conta gratuita</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>IFRN FIC</h4>
+      <p>Instituto Federal do Rio Grande do Norte – Cursos de Formação Inicial e Continuada.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul><li><a href="index.html">Inicial</a></li><li><a href="curso_galeria.html">Cursos</a></li><li><a href="contato.html">Contato</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Conta</h4>
+      <ul><li><a href="login.html">Login</a></li><li><a href="cadastro.html">Cadastro</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul><li><a href="mailto:fic@ifrn.edu.br">fic@ifrn.edu.br</a></li><li><a href="#">(84) 3000-0000</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 IFRN – Instituto Federal do Rio Grande do Norte. Todos os direitos reservados.</div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

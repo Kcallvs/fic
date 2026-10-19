@@ -11,7 +11,7 @@
       <a href="{% url 'index' %}">Inicial</a>
       <a href="{% url 'curso_galeria' %}">Cursos</a>
       <a href="{% url 'contato' %}">Contato</a>
-      <a href="">Transparência</a>
+      <a href="{% url 'transparencia' %}">Transparência</a>
       <div class="nav-divider"></div>
       {% if not user.is_authenticated %}
       <a href="{% url 'login' %}" class="btn-nav btn-login">Login</a>
@@ -19,8 +19,6 @@
       {% else %}
       <a href="{% url 'sair' %}" class="btn-nav btn-login">Sair</a>
       {% endif %}
-      <!-- <a href="perfil.html" class="btn-nav btn-perfil">Perfil</a> -->
-      
     </div>
   </div>
 </nav>

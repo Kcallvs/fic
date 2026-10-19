@@ -1,0 +1,31 @@
+{% comment %}
+Paginação reutilizável.
+Espera no contexto:
+- pagina: objeto Page do Paginator
+- filtros: querystring (sem o 'page') para manter os filtros ao trocar de página
+{% endcomment %}
+{% if pagina.paginator.num_pages > 1 %}
+<div class="pagination">
+
+  {% if pagina.has_previous %}
+  <a class="page-btn" href="?page={{ pagina.previous_page_number }}&{{ filtros }}">‹</a>
+  {% else %}
+  <span class="page-btn disabled">‹</span>
+  {% endif %}
+
+  {% for numero in pagina.paginator.page_range %}
+    {% if numero == pagina.number %}
+    <span class="page-btn active">{{ numero }}</span>
+    {% else %}
+    <a class="page-btn" href="?page={{ numero }}&{{ filtros }}">{{ numero }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if pagina.has_next %}
+  <a class="page-btn" href="?page={{ pagina.next_page_number }}&{{ filtros }}">›</a>
+  {% else %}
+  <span class="page-btn disabled">›</span>
+  {% endif %}
+
+</div>
+{% endif %}
