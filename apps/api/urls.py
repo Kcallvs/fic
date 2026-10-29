@@ -9,16 +9,11 @@ urlpatterns = [
     path('areas_lista/', areas_lista, name='areas_lista'),
     path('publicos_lista/', publicos_lista, name='publicos_lista'),
 
+    # Utilizando Serializers
     path('areas/', areas, name='areas'),
     path('area_cadastrar/', area_cadastrar, name='area_cadastrar'),
     path('area_atualizar/<int:id>/', area_atualizar, name='area_atualizar'),
-
-    path('area_deletar', area_deletar, name='area_deletar'),
     
     path('login/', entrar, name='api_login'),
     path('logout/', sair, name='api_logout'),
-
-
-    
-    
 ]
